@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Reporter — Dossiers d'investigation</title>
+  <meta name="description" content="Analysez des articles de presse et identifiez les techniques de manipulation médiatique.">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ═══ MAIN AREA ═══ -->
+  <div class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <a href="#home" class="topbar__logo"><span class="topbar__logo-u">U</span><span class="topbar__logo-r">R</span></a>
+      <div class="topbar__spacer"></div>
+      <div class="topbar__user" id="user-pill">
+        <span>Stagiaire</span>
+        <span class="topbar__user-sep">·</span>
+        <span class="topbar__user-name">C.A.N</span>
+        <span class="topbar__user-sep">·</span>
+        <span class="topbar__user-xp">0 XP</span>
+      </div>
+    </header>
+
+
+    <!-- ═══ PAGE: HOME ═══ -->
+    <div id="page-home" class="page-view">
+      <div class="page-content" id="home-content">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+
+    <!-- ═══ PAGE: DOSSIER BRIEFING ═══ -->
+    <div id="page-dossier" class="page-view">
+      <div id="dossier-content">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+
+    <!-- ═══ PAGE: ANALYSE ═══ -->
+    <div id="page-analyse" class="page-view">
+      <div class="analyse-layout">
+        <!-- Article Reader -->
+        <div>
+          <div class="article-reader" id="article-reader">
+            <!-- rendered by JS -->
+          </div>
+
+          <!-- Source Linker (appears after technique selection) -->
+          <div class="source-linker" id="source-linker">
+            <h3 class="source-linker__title">Lier à une source contradictoire</h3>
+            <p class="source-linker__sub">Quelle source contredit ce passage ? Choisissez un extrait ou passez.</p>
+            <div class="source-linker__extracts" id="source-linker-extracts">
+              <!-- rendered by JS -->
+            </div>
+            <div class="source-linker__actions">
+              <button class="btn btn--ghost btn--small" id="skip-source-btn">Passer cette étape</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score Panel -->
+        <div class="score-panel">
+          <div class="score-panel__card">
+            <div class="score-panel__title">Score</div>
+            <div class="score-ring">
+              <svg class="score-ring__svg" viewBox="0 0 120 120">
+                <circle class="score-ring__bg" cx="60" cy="60" r="52"/>
+                <circle class="score-ring__fill" id="score-ring-fill" cx="60" cy="60" r="52"
+                        stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+              </svg>
+              <div class="score-ring__text">
+                <div class="score-ring__value"><span id="panel-score">0</span></div>
+                <div class="score-ring__max"><span id="panel-score-max">/ 60</span></div>
+              </div>
+            </div>
+            <div class="score-panel__count">
+              <span>Annotations</span>
+              <span class="score-panel__count-value" id="panel-annotation-count">0</span>
+            </div>
+          </div>
+
+          <div class="score-panel__card">
+            <div class="score-panel__title">Historique</div>
+            <ul class="annotation-list" id="panel-annotations">
+              <div class="annotation-list__empty">Sélectionnez du texte pour commencer</div>
+            </ul>
+          </div>
+
+          <div class="analyse-actions" id="analyse-actions">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══ PAGE: VERDICT ═══ -->
+    <div id="page-verdict" class="page-view">
+      <div id="verdict-content">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /app -->
+
+
+<!-- Floating toolbar is now created dynamically by app.js -->
+
+
+<!-- ═══ FLASH OVERLAY ═══ -->
+<div class="flash-overlay" id="flash-overlay"></div>
+
+
+<!-- ═══ CONFETTI CANVAS ═══ -->
+<canvas id="confetti-canvas"></canvas>
+
+
+
+
+
+<!-- Scripts: icons first, then data, then app -->
+<script src="icons.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
